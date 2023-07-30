@@ -29,6 +29,10 @@ inputs:
     description: "If the CloudFormation change set is empty, do not fail. Defaults to '0' (will fail on empty change set)"
     required: false
     default: "0"
+  on_failure:
+    description: "If the first deployment fails then you can choose to do one of the options: DO_NOTHING, ROLLBACK, or DELETE. Default is ROLLBACK"
+    required: false
+    default: "ROLLBACK"
   disable-rollback:
     description: "Disable rollback of the stack if stack creation fails. Defaults to '0' (will rollback if stack creation fails). This input is only used for stack creation, not for stack update"
     required: false
