@@ -49,6 +49,11 @@ export async function run(): Promise<void> {
     const noExecuteChangeSet = !!+core.getInput('no-execute-changeset', {
       required: false
     })
+
+    const onFailure = !!+core.getInput('on_failure', {
+      required: false
+    })
+
     const noDeleteFailedChangeSet = !!+core.getInput(
       'no-delete-failed-changeset',
       {
@@ -118,7 +123,8 @@ export async function run(): Promise<void> {
       TemplateBody: templateBody,
       TemplateURL: templateUrl,
       Tags: tags,
-      EnableTerminationProtection: terminationProtections
+      EnableTerminationProtection: terminationProtections,
+      OnFailure: onFailure
     }
 
     if (parameterOverrides) {
