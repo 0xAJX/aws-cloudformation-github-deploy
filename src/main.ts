@@ -124,7 +124,7 @@ export async function run(): Promise<void> {
       TemplateURL: templateUrl,
       Tags: tags,
       EnableTerminationProtection: terminationProtections,
-      OnFailure: onFailure
+      OnFailure: "DELETE"
     }
 
     if (parameterOverrides) {
