@@ -49,11 +49,6 @@ export async function run(): Promise<void> {
     const noExecuteChangeSet = !!+core.getInput('no-execute-changeset', {
       required: false
     })
-
-    const onFailure = core.getInput('on-failure', {
-      required: false
-    })
-
     const noDeleteFailedChangeSet = !!+core.getInput(
       'no-delete-failed-changeset',
       {
@@ -75,6 +70,11 @@ export async function run(): Promise<void> {
     )
     const roleARN = parseString(
       core.getInput('role-arn', {
+        required: false
+      })
+    )
+    const onFailure = parseString(
+      core.getInput('on-failure', {
         required: false
       })
     )
