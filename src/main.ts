@@ -78,7 +78,6 @@ export async function run(): Promise<void> {
         required: false
       })
     )
-    core.debug('on-failure value ' + onFailure)
     const tags = parseTags(
       core.getInput('tags', {
         required: false
@@ -103,7 +102,7 @@ export async function run(): Promise<void> {
     let templateUrl
 
     if (isUrl(template)) {
-      core.debug('Using CloudFormation Stack from Amazon S3 Bucket')
+      core.debug('Using CloudFormation Stack from Amazon S3 Bucket ' + onFailure)
       templateUrl = template
     } else {
       core.debug('Loading CloudFormation Stack template')
