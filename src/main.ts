@@ -78,6 +78,7 @@ export async function run(): Promise<void> {
         required: false
       })
     )
+    core.debug('on-failure value ' + onFailure)
     const tags = parseTags(
       core.getInput('tags', {
         required: false
