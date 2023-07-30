@@ -50,7 +50,7 @@ export async function run(): Promise<void> {
       required: false
     })
 
-    const onFailure = !!+core.getInput('on_failure', {
+    const onFailure = core.getInput('on_failure', {
       required: false
     })
 
