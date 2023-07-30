@@ -102,7 +102,7 @@ export async function run(): Promise<void> {
     let templateUrl
 
     if (isUrl(template)) {
-      core.debug('Using CloudFormation Stack from Amazon S3 Bucket ' + onFailure)
+      core.debug('Using CloudFormation Stack from Amazon S3 Bucket')
       templateUrl = template
     } else {
       core.debug('Loading CloudFormation Stack template')
@@ -118,13 +118,12 @@ export async function run(): Promise<void> {
       Capabilities: [...capabilities.split(',').map(cap => cap.trim())],
       RoleARN: roleARN,
       NotificationARNs: notificationARNs,
-      DisableRollback: disableRollback,
       TimeoutInMinutes: timeoutInMinutes,
       TemplateBody: templateBody,
       TemplateURL: templateUrl,
       Tags: tags,
       EnableTerminationProtection: terminationProtections,
-      OnFailure: "DELETE"
+      OnFailure: onFailure
     }
 
     if (parameterOverrides) {
